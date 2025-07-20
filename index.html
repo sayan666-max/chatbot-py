@@ -1,0 +1,26 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body>
+    <h2>Simple Chatbot</h2>
+    <input type="text" id="userInput" placeholder="Say something..." />
+    <button onclick="sendMessage()">Send</button>
+    <p id="responseArea"></p>
+
+    <script>
+        async function sendMessage() {
+            const message = document.getElementById("userInput").value;
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({message})
+            });
+            const data = await response.json();
+            document.getElementById("responseArea").innerText = "Bot: " + data.response;
+        }
+    </script>
+</body>
+</html>
