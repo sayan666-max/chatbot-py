@@ -26,3 +26,4 @@ Customer support automation
 Virtual assistant for student portals, company intranets
 
 FAQ responder for service websites
+### RUN THE CODE = python app.py
